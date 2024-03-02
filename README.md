@@ -1,2 +1,2 @@
 # memoria
-A chrome extension that shows how much memory each tab is consuming.
+A chrome extension to set web page reminders -- an alternative to creating bookmarks that eventually get forgotten.. 
