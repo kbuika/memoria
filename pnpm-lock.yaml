@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  add-to-calendar-button-react:
+    specifier: ^2.6.0
+    version: 2.6.0(react-dom@18.2.0)(react@18.2.0)
   react:
     specifier: ^18.2.0
     version: 18.2.0
@@ -813,6 +816,25 @@ packages:
     engines: {node: '>=0.4.0'}
     hasBin: true
     dev: true
+
+  /add-to-calendar-button-react@2.6.0(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-Xrvpg/2/78z3jWETzjBr6JFe8pFQXPuGJFgJRkN6SU+IkSjdo1sstUOYZl9xnWvkZ7BZw8appUUs9ZU52eCoNA==}
+    engines: {node: '>=20.0.0', npm: '>=9.6.7'}
+    peerDependencies:
+      react: '>=18.0.0'
+      react-dom: '>=18.0.0'
+    dependencies:
+      add-to-calendar-button: 2.6.0
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
+
+  /add-to-calendar-button@2.6.0:
+    resolution: {integrity: sha512-TmhT+eE6OnhEHAZTbRk7aIBxgCiI+JOGnMDqLOIFkdvC0r/zsymQG+GLwlyfuQ+KjQXhf0gEsN+LJm6FetDM2A==}
+    engines: {node: '>=20.0.0', npm: '>=9.6.7'}
+    dependencies:
+      timezones-ical-library: 1.8.2
+    dev: false
 
   /adm-zip@0.5.10:
     resolution: {integrity: sha512-x0HvcHqVJNTPk/Bw8JbLWlWoo6Wwnsug0fnYYro1HBrjxZ3G7/AZk7Ahv8JwDe1uIcz8eBqvu86FuF1POiG7vQ==}
@@ -3306,6 +3328,11 @@ packages:
   /through@2.3.8:
     resolution: {integrity: sha512-w89qg7PI8wAdvX60bMDP+bFoD5Dvhm9oLheFp5O4a2QF0cSBGsBX4qZmadPMvVqlLJBBci+WqGGOAPvcDeNSVg==}
     dev: true
+
+  /timezones-ical-library@1.8.2:
+    resolution: {integrity: sha512-0bbCp+xXtTUOcBo7bAGkzK5yMiNnY/FmJblTlnkGcqW5O+SChvWNtvsOX9WqbU5/8sT+Nl/MKQ7c9qafIkUstA==}
+    engines: {node: '>=18.17.0', npm: '>=9.6.7'}
+    dev: false
 
   /titleize@3.0.0:
     resolution: {integrity: sha512-KxVu8EYHDPBdUYdKZdKtU2aj2XfEx9AfjXxE/Aj0vT06w2icA09Vus1rh6eSu1y01akYg6BjIK/hxyLJINoMLQ==}
