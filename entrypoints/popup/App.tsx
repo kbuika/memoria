@@ -2,10 +2,13 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import { AddToCalendarButton } from "add-to-calendar-button-react";
 import MemoriaLogo from "../../assets/memoria.png";
+import { DateTimePicker } from "@/components/date-time-picker";
+import { DateValue } from "react-aria";
 
 function App() {
   const [currentTabUrl, setCurrentTabUrl] = useState("");
-  useEffect(() => {}, []);
+  const [reminderDateTime, setReminderDateTime] = useState<DateValue | null>(null);
+
   browser.tabs.query({ active: true, currentWindow: true }).then((tabs) => {
     if (!tabs[0]) {
       console.log("No active tab");
@@ -24,19 +27,28 @@ function App() {
       <div className="card">
         <p className="mb-4 text-sm">
           <span style={{ fontWeight: 700 }}>Current Url: </span>
-          <a href={currentTabUrl} className="underline underline-offset-2">{currentTabUrl}</a>
+          <a href={currentTabUrl} className="underline underline-offset-2">
+            {currentTabUrl}
+          </a>
         </p>
+        <div className="w-[80%] p-4 space-y-2">
+          <div className="w-full">
+            <DateTimePicker granularity={"minute"} onChange={(e: DateValue) => setReminderDateTime(e)}/>
+          </div>
+          <p>{reminderDateTime?.toString()}</p>
+        </div>
         <AddToCalendarButton
           label="Set Reminder"
           name="Bookmark Reminder"
           options={["Apple", "Google"]}
           location={currentTabUrl}
-          startDate="2024-03-05"
-          endDate="2024-03-05"
-          startTime="12:15"
-          endTime="12:30"
+          startDate={reminderDateTime?.toString().split("T")[0] ?? ""}
+          endDate={reminderDateTime?.toString().split("T")[0] ?? ""}
+          startTime={reminderDateTime?.toString().split("T")[-1] ?? "12:00"}
+          endTime={reminderDateTime?.toString().split("T")[-1] ?? "12:00"}
           timeZone="Africa/Nairobi"
           description={`This is a reminder to check out the website -- ${currentTabUrl}`}
+          disabled={reminderDateTime === null}
         ></AddToCalendarButton>
       </div>
     </div>
