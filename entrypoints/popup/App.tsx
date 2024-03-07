@@ -15,6 +15,15 @@ function App() {
     setCurrentTabUrl(url ?? "");
   });
 
+  function getTodayInFormat() {
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const day = String(today.getDate()).padStart(2, '0');
+  
+    return `${year}-${month}-${day}`;
+  }
+
   return (
     <div className="container">
       <div className="title-div flex items-center justify-center py-2">
@@ -31,10 +40,10 @@ function App() {
           name="Bookmark Reminder"
           options={["Apple", "Google"]}
           location={currentTabUrl}
-          startDate="2024-03-05"
-          endDate="2024-03-05"
-          startTime="12:15"
-          endTime="12:30"
+          startDate={getTodayInFormat()} //TODO: Change this to the date the user wants to be reminded
+          endDate={getTodayInFormat()} //TODO: Change this to the date the user wants to be reminded
+          startTime="12:15" //TODO: Change this to the time the user wants to be reminded
+          endTime="12:30" //TODO: Change this to the time the user wants to be reminded
           timeZone="Africa/Nairobi"
           description={`This is a reminder to check out the website -- ${currentTabUrl}`}
         ></AddToCalendarButton>
