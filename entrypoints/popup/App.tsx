@@ -17,14 +17,14 @@ function App() {
 
   return (
     <div className="container">
-      <div className="title-div">
+      <div className="title-div flex items-center justify-center py-2">
         <img src={MemoriaLogo} alt="Memoria Logo" className="logo" />
-        <h1 className="title">Memoria</h1>
+        <h1 className="text-xl font-semibold">Memoria</h1>
       </div>
       <div className="card">
-        <p>
+        <p className="mb-4 text-sm">
           <span style={{ fontWeight: 700 }}>Current Url: </span>
-          {currentTabUrl}
+          <a href={currentTabUrl} className="underline underline-offset-2">{currentTabUrl}</a>
         </p>
         <AddToCalendarButton
           label="Set Reminder"
